@@ -3,7 +3,7 @@ use std::process::{Command, Stdio};
 
 fn main() {
     let mut cmd = Command::new("cargo");
-    
+
     cmd.args([
         "nextest",
         "run",
@@ -26,13 +26,13 @@ fn main() {
         .stdin(Stdio::null())
         .stdout(Stdio::piped())
         .stderr(Stdio::null());
-    
+
     let mut child = cmd.spawn().unwrap();
     let stdout = child.stdout.take().unwrap();
-    
+
     for line in std::io::BufReader::new(stdout).lines() {
         println!("{}", line.unwrap());
     }
-    
+
     child.wait().unwrap();
 }
