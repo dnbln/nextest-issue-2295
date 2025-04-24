@@ -71,3 +71,4 @@ jobs:
         run: cargo build --workspace --tests
       - name: Invoke nextest wrapper
         run: cargo run -p nextest-issue-2295
+        timeout-minutes: 3
