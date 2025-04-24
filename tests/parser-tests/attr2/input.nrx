@@ -1,3 +1,0 @@
-// test attr2 at crates/narxia-syn/src/parser/mod.rs
-#attr2
-fn f() {}

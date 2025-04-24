@@ -1,3 +1,0 @@
-// test while-stmt at crates/narxia-syn/src/parser/stmt.rs
-while (a == b) {
-}

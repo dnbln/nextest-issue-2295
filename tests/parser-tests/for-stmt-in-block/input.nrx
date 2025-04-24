@@ -1,5 +1,0 @@
-// test for-stmt-in-block at crates/narxia-syn/src/parser/stmt.rs
-{
-    for (i in f()) {
-    }
-}

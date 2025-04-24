@@ -1,2 +1,0 @@
-// test loop-expr at crates/narxia-syn/src/parser/expr.rs
-loop {}

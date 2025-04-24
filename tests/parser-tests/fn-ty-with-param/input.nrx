@@ -1,2 +1,0 @@
-// test fn-ty-with-param at crates/narxia-syn/src/parser/mod.rs
-let x: fn(i32)

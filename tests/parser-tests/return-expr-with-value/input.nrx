@@ -1,2 +1,0 @@
-// test return-expr-with-value at crates/narxia-syn/src/parser/expr.rs
-return 1

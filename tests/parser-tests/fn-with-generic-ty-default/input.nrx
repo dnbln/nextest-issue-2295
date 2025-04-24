@@ -1,3 +1,0 @@
-// test fn-with-generic-ty-default at crates/narxia-syn/src/parser/fun.rs
-fn f<T = i32>(v: T) {
-}

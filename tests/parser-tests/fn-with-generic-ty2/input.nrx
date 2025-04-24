@@ -1,3 +1,0 @@
-// test fn-with-generic-ty2 at crates/narxia-syn/src/parser/fun.rs
-fn f<T, U>(v: T, w: U) {
-}

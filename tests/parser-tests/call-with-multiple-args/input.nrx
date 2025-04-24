@@ -1,2 +1,0 @@
-// test call-with-multiple-args at crates/narxia-syn/src/parser/expr.rs
-f(a, b, c)

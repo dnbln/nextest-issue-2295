@@ -1,3 +1,0 @@
-// test assignment at crates/narxia-syn/src/parser/stmt.rs
-x = y
-x.y = z
