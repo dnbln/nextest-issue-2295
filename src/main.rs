@@ -26,7 +26,7 @@ fn main() {
 
     let mut cmd = Command::new("cargo");
     
-    let f = std::fs::File::open("nextest.stderr.log").unwrap();
+    let f = std::fs::File::create("nextest.stderr.log").unwrap();
 
     cmd.args([
         "nextest",
