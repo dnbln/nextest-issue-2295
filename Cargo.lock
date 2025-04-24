@@ -269,10 +269,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "cargo-guard"
-version = "0.0.0"
-
-[[package]]
 name = "cargo-nexus"
 version = "0.0.0"
 
@@ -1794,7 +1790,6 @@ dependencies = [
 name = "nextest-issue-2295"
 version = "0.1.0"
 dependencies = [
- "narxia-codegen-llvm",
  "prodash",
 ]
 

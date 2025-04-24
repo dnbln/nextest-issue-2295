@@ -1,6 +1,5 @@
 [workspace]
 members = ["crates/*", "dev/*", "tests/narxia-test-runner"]
-default-members = ["dev/cargo-guard"]
 resolver = "2"
 
 [workspace.package]
@@ -94,7 +93,6 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
-narxia-codegen-llvm.workspace = true
 prodash.workspace = true
 
 [[test]]
