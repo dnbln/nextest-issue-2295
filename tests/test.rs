@@ -5,7 +5,7 @@ macro_rules! t {
         #[test]
         fn $name() {
             // simulate workload
-            std::thread::sleep(Duration::from_millis(10));
+            std::thread::sleep(Duration::from_millis(70));
         }
     };
 }
