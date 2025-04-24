@@ -72,3 +72,9 @@ jobs:
       - name: Invoke nextest wrapper
         run: cargo run -p nextest-issue-2295
         timeout-minutes: 3
+      - name: Output nextest log
+        run: |
+          echo "Dumping nextest log"
+          echo "=================="
+          cat nextest.stderr.log
+        if: always()

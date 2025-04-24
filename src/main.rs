@@ -25,6 +25,8 @@ fn main() {
     let handle = line::render(io::stderr(), tree, opts);
 
     let mut cmd = Command::new("cargo");
+    
+    let f = std::fs::File::open("nextest.stderr.log").unwrap();
 
     cmd.args([
         "nextest",
@@ -47,7 +49,7 @@ fn main() {
     .env("NEXTEST_EXPERIMENTAL_LIBTEST_JSON", "1")
     .stdin(Stdio::null())
     .stdout(Stdio::piped())
-    .stderr(Stdio::null());
+    .stderr(Stdio::from(f));
 
     let mut child = cmd.spawn().unwrap();
     let stdout = child.stdout.take().unwrap();
