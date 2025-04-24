@@ -23,7 +23,7 @@ fn main() {
         "nextest" => {
             let mut cmd = Command::new("cargo");
 
-            std::fs::write("test.nextest.log", b"Hello, world!\n").unwrap();
+            std::fs::write("test.stderr.log", b"Hello, world!\n").unwrap();
 
             cmd.args([
                 "nextest",
