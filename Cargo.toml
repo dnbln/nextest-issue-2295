@@ -1,0 +1,10 @@
+[package]
+name = "nextest-issue-2295"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+
+[[test]]
+name = "test"
+path = "tests/test.rs"
