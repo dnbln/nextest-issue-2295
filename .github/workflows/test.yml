@@ -13,7 +13,7 @@ env:
   COLOR: always
 
 jobs:
-  test-with-timeout:
+  nextest-with-timeout:
     runs-on: ubuntu-latest
 
     steps:
@@ -40,7 +40,7 @@ jobs:
           cat nextest.stderr.log
         if: always()
 
-  test-without-timeout:
+  nextest-without-timeout:
     runs-on: ubuntu-latest
 
     steps:
@@ -65,3 +65,32 @@ jobs:
           echo "=================="
           cat nextest.stderr.log
         if: always()
+
+  test-with-timeout:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install rust
+        run: rustup install nightly && rustup default nightly
+      - name: Rust cache
+        uses: Swatinem/rust-cache@v2
+      - name: Build tests
+        run: cargo build --workspace --tests
+      - name: cargo test
+        run: cargo test
+        timeout-minutes: 3
+
+  test-without-timeout:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install rust
+        run: rustup install nightly && rustup default nightly
+      - name: Rust cache
+        uses: Swatinem/rust-cache@v2
+      - name: Build tests
+        run: cargo build --workspace --tests
+      - name: cargo test
+        run: cargo test
