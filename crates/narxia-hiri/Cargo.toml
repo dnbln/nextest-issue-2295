@@ -1,0 +1,17 @@
+[package]
+name = "narxia-hiri"
+version.workspace = true
+publish.workspace = true
+edition.workspace = true
+homepage.workspace = true
+repository.workspace = true
+description.workspace = true
+keywords.workspace = true
+
+
+[lints]
+workspace = true
+
+[dependencies]
+narxia-data-structures.workspace = true
+narxia-hir.workspace = true

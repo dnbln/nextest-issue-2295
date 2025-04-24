@@ -1,0 +1,24 @@
+[package]
+name = "narxia-syn"
+version.workspace = true
+publish.workspace = true
+edition.workspace = true
+homepage.workspace = true
+repository.workspace = true
+description.workspace = true
+keywords.workspace = true
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lints]
+workspace = true
+
+[dependencies]
+owo-colors.workspace = true
+rowan.workspace = true
+drop_bomb.workspace = true
+smallvec.workspace = true
+bitflags.workspace = true
+
+narxia-proc.workspace = true
+narxia-log.workspace = true

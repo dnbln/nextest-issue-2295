@@ -1,0 +1,56 @@
+[package]
+name = "narxia-driver"
+version.workspace = true
+publish.workspace = true
+edition.workspace = true
+homepage.workspace = true
+repository.workspace = true
+description.workspace = true
+keywords.workspace = true
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+
+[lints]
+workspace = true
+
+[features]
+default = []
+llvm-force-static = ["narxia-codegen-llvm/llvm-force-static"]
+llvm-prefer-dynamic = ["narxia-codegen-llvm/llvm-prefer-dynamic"]
+llvm-force-dynamic = ["narxia-codegen-llvm/llvm-force-dynamic"]
+
+[dependencies]
+clap.workspace = true
+owo-colors.workspace = true
+miette.workspace = true
+salsa.workspace = true
+human-panic.workspace = true
+
+narxia-codegen.workspace = true
+narxia-codegen-llvm.workspace = true
+narxia-log.workspace = true
+narxia-log-impl.workspace = true
+narxia-src-db.workspace = true
+narxia-syn.workspace = true
+narxia-syn-db.workspace = true
+narxia-data-structures.workspace = true
+narxia-hir.workspace = true
+narxia-hir-db.workspace = true
+narxia-hir-typechk.workspace = true
+narxia-hiri.workspace = true
+narxia-ssa.workspace = true
+narxia-ssa-lower.workspace = true
+narxia-ssa-validator.workspace = true
+
+[dev-dependencies]
+criterion.workspace = true
+narxia-hir-lower.workspace = true
+
+[[bench]]
+name = "parser-bench"
+harness = false
+
+[[bench]]
+name = "hir-lower-bench"
+harness = false

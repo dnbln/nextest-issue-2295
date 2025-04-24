@@ -1,8 +1,102 @@
 [workspace]
-resolver = "3"
-members = [
-    "crates/*",
-]
+members = ["crates/*", "dev/*", "tests/narxia-test-runner"]
+default-members = ["dev/cargo-guard"]
+resolver = "2"
+
+[workspace.package]
+version = "0.0.0"
+publish = false
+edition = "2021"
+homepage = "https://dnbln.dev/narxia"
+repository = "https://github.com/dnbln/narxia"
+description = "A programming language for distributed systems."
+keywords = ["narxia", "programming-language"]
+license = "MIT OR Apache-2.0"
+
+[profile.release]
+debug = true
+
+[profile.dev.package."rowan"]
+opt-level = 3
+
+[profile.dev.package."libtest-mimic"]
+opt-level = 3
+
+[profile.dev.package."narxia-syn"]
+opt-level = 3
+
+[workspace.dependencies]
+narxia-codegen = { path = "crates/narxia-codegen" }
+narxia-codegen-llvm = { path = "crates/narxia-codegen-llvm" }
+narxia-data-structures = { path = "crates/narxia-data-structures" }
+narxia-dir-structures = { path = "dev/narxia-dir-structures" }
+narxia-driver = { path = "crates/narxia-driver" }
+narxia-hir = { path = "crates/narxia-hir" }
+narxia-hir-lower = { path = "crates/narxia-hir-lower" }
+narxia-hir-db = { path = "crates/narxia-hir-db" }
+narxia-hir-typechk = { path = "crates/narxia-hir-typechk" }
+narxia-hiri = { path = "crates/narxia-hiri" }
+narxia-log = { path = "crates/narxia-log" }
+narxia-log-impl = { path = "crates/narxia-log-impl" }
+narxia-proc = { path = "crates/narxia-proc" }
+narxia-src-db = { path = "crates/narxia-src-db" }
+narxia-ssa = { path = "crates/narxia-ssa" }
+narxia-ssa-lower = { path = "crates/narxia-ssa-lower" }
+narxia-ssa-validator = { path = "crates/narxia-ssa-validator" }
+narxia-syn = { path = "crates/narxia-syn" }
+narxia-syn-db = { path = "crates/narxia-syn-db" }
+
+dir-structure-macros = { path = "dev/dir-structure-macros", version = "=0.1.5" }
+dir-structure = { path = "dev/dir-structure", version = "0.1.5" }
+
+bumpalo = "3.6.0"
+cargo_metadata = "0.19.1"
+nextest-metadata = "0.12.1"
+clap = { version = "4.4.3", features = ["derive"] }
+criterion = { version = "0.5", features = ["html_reports"] }
+bitflags = "2"
+dashmap = "6.1.0"
+drop_bomb = "0.1.5"
+glob = "0.3.0"
+human-panic = "2.0.0"
+humantime = "2.1.0"
+libc = "0.2"
+libtest-mimic = "0.8.1"
+llvm-sys = { version = "201.0.0", default-features = false }
+miette = { version = "7.2.0", features = ["fancy"] }
+owo-colors = { version = "4.0.0", features = ["supports-colors"] }
+path-absolutize = "3.1.1"
+prodash = { version = "29.0.0", default-features = false, features = [
+    "render-line",
+    "render-line-crossterm",
+    "render-line-autoconfigure",
+    "progress-tree",
+] }
+reqwest = { version = "0.12.15", features = ["blocking"] }
+rowan = "0.16.1"
+salsa = { path = "crates/narxia-salsa" }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+similar = "2.7"
+smallvec = "1.10.0"
+tar = "0.4"
+thiserror = "2.0.12"
+tracing = "0.1.37"
+tracing-subscriber = { version = "0.3.17", features = ["env-filter"] }
+xz = "0.1.0"
+zip = "2.6.1"
+
+[workspace.lints.rust]
+unsafe_code = "deny"
+unused_imports = "deny"
+unused_unsafe = "deny"
+
+[workspace.lints.clippy]
+absolute_paths = "deny"
+alloc_instead_of_core = "deny"
+allow_attributes = "deny"
+suspicious = { level = "deny", priority = -1 }
+style = "deny"
 
 [package]
 name = "nextest-issue-2295"
@@ -10,6 +104,7 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
+narxia-codegen-llvm.workspace = true
 
 [[test]]
 name = "test"

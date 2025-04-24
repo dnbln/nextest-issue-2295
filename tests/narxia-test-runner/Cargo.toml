@@ -1,0 +1,72 @@
+[package]
+name = "narxia-test-runner"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+owo-colors.workspace = true
+libtest-mimic.workspace = true
+dir-structure.workspace = true
+miette.workspace = true
+similar.workspace = true
+
+narxia-dir-structures.workspace = true
+narxia-driver.workspace = true
+narxia-hir.workspace = true
+narxia-hir-db.workspace = true
+narxia-hir-typechk.workspace = true
+narxia-log.workspace = true
+narxia-ssa.workspace = true
+narxia-ssa-lower.workspace = true
+narxia-ssa-validator.workspace = true
+narxia-syn.workspace = true
+narxia-src-db.workspace = true
+
+[lints]
+workspace = true
+
+[[test]]
+name = "parsing_tests_nxtimq"
+path = "tests/parsing_tests.rs"
+harness = false
+
+[[test]]
+name = "syntree_correctness_nxtimq"
+path = "tests/syntree_correctness.rs"
+
+[[test]]
+name = "syntree_completeness_nxtimq"
+path = "tests/syntree_completeness.rs"
+harness = false
+
+[[test]]
+name = "no_orphans_after_parent_compute_nxtimq"
+path = "tests/no_orphans_after_parent_compute.rs"
+harness = false
+
+[[test]]
+name = "visitor_visits_all_hir_ids_nxtimq"
+path = "tests/visitor_visits_all_hir_ids.rs"
+harness = false
+
+[[test]]
+name = "visitor_visits_all_non_whitespace_text_nxtimq"
+path = "tests/visitor_visits_all_non_whitespace_text.rs"
+harness = false
+
+[[test]]
+name = "no_allocated_and_unused_hirids_nxtimq"
+path = "tests/no_allocated_and_unused_hirids.rs"
+harness = false
+
+[[test]]
+name = "ssa_tests_nxtimq"
+path = "tests/ssa_tests.rs"
+harness = false
+
+[[test]]
+name = "ssa_tests_validate_nxtimq"
+path = "tests/ssa_tests_validate.rs"
+harness = false

@@ -1,0 +1,23 @@
+[package]
+name = "narxia-hir"
+version.workspace = true
+publish.workspace = true
+edition.workspace = true
+homepage.workspace = true
+repository.workspace = true
+description.workspace = true
+keywords.workspace = true
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+
+[lints]
+workspace = true
+
+[dependencies]
+owo-colors.workspace = true
+bumpalo.workspace = true
+
+narxia-log.workspace = true
+narxia-proc.workspace = true
+narxia-data-structures.workspace = true
