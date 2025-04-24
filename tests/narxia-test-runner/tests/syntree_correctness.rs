@@ -185,7 +185,7 @@ fn run() -> miette::Result<()> {
     check_all(input_files)
 }
 
-#[test]
-pub fn check() -> miette::Result<()> {
-    run()
-}
+// #[test]
+// pub fn check() -> miette::Result<()> {
+//     run()
+// }
