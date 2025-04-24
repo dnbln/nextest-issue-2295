@@ -1795,6 +1795,7 @@ name = "nextest-issue-2295"
 version = "0.1.0"
 dependencies = [
  "narxia-codegen-llvm",
+ "prodash",
 ]
 
 [[package]]

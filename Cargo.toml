@@ -105,6 +105,7 @@ edition = "2024"
 
 [dependencies]
 narxia-codegen-llvm.workspace = true
+prodash.workspace = true
 
 [[test]]
 name = "test"
