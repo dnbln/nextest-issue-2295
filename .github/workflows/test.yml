@@ -32,6 +32,8 @@ jobs:
         run: cargo build --workspace --tests
       - name: Invoke nextest wrapper
         run: cargo run -p nextest-issue-2295
+        env:
+          NEXTEST_LOG: trace
         timeout-minutes: 3
       - name: Output nextest log
         run: |
