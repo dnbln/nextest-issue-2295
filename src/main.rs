@@ -52,9 +52,13 @@ fn main() {
     let mut child = cmd.spawn().unwrap();
     let stdout = child.stdout.take().unwrap();
 
+    println!("::group::Test results");
+
     for line in std::io::BufReader::new(stdout).lines() {
         println!("{}", line.unwrap());
     }
+
+    println!("::endgroup::");
 
     child.wait().unwrap();
 
