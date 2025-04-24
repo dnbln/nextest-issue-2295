@@ -23,14 +23,30 @@ jobs:
         run: rustup install nightly && rustup default nightly
       - name: Rust cache
         uses: Swatinem/rust-cache@v2
+      - name: Cache llvm
+        id: llvm-cache
+        uses: actions/cache/restore@v4
+        with:
+          key: downloaded-llvm
+          path: |
+            LLVM-20.1.3-Linux-X64
       - name: Download LLVM
+        if: steps.llvm-cache.outputs.cache-hit != 'true'
         run: curl -L https://github.com/llvm/llvm-project/releases/download/llvmorg-20.1.3/LLVM-20.1.3-Linux-X64.tar.xz -o LLVM.tar.xz
       - name: Extract LLVM
+        if: steps.llvm-cache.outputs.cache-hit != 'true'
         run: |
           tar -xf LLVM.tar.xz
           ls -la
           ls LLVM-20.1.3-Linux-X64
           ls LLVM-20.1.3-Linux-X64/bin
+      - name: Save llvm
+        if: steps.llvm-cache.outputs.cache-hit != 'true'
+        uses: actions/cache/save@v4
+        with:
+          key: built-llvm
+          path: |
+            LLVM-20.1.3-Linux-X64
       - name: Install cargo-nextest
         uses: baptiste0928/cargo-install@v1
         with:
