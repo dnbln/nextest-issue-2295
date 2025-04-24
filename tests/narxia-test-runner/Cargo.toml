@@ -51,16 +51,16 @@ name = "visitor_visits_all_hir_ids_nxtimq"
 path = "tests/visitor_visits_all_hir_ids.rs"
 harness = false
 
-#[[test]]
-#name = "visitor_visits_all_non_whitespace_text_nxtimq"
-#path = "t2/visitor_visits_all_non_whitespace_text.rs"
-#harness = false
-#
-#[[test]]
-#name = "no_allocated_and_unused_hirids_nxtimq"
-#path = "t2/no_allocated_and_unused_hirids.rs"
-#harness = false
-#
+[[test]]
+name = "visitor_visits_all_non_whitespace_text_nxtimq"
+path = "t2/visitor_visits_all_non_whitespace_text.rs"
+harness = false
+
+[[test]]
+name = "no_allocated_and_unused_hirids_nxtimq"
+path = "t2/no_allocated_and_unused_hirids.rs"
+harness = false
+
 #[[test]]
 #name = "ssa_tests_nxtimq"
 #path = "t2/ssa_tests.rs"
