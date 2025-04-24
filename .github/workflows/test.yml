@@ -13,7 +13,7 @@ env:
   COLOR: always
 
 jobs:
-  build:
+  test-with-timeout:
     runs-on: ubuntu-latest
 
     steps:
@@ -33,6 +33,32 @@ jobs:
         env:
           NEXTEST_LOG: trace
         timeout-minutes: 3
+      - name: Output nextest log
+        run: |
+          echo "Dumping nextest log"
+          echo "=================="
+          cat nextest.stderr.log
+        if: always()
+
+  test-without-timeout:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install rust
+        run: rustup install nightly && rustup default nightly
+      - name: Rust cache
+        uses: Swatinem/rust-cache@v2
+      - name: Install cargo-nextest
+        uses: baptiste0928/cargo-install@v3
+        with:
+          crate: cargo-nextest
+      - name: Build tests
+        run: cargo build --workspace --tests
+      - name: Invoke nextest wrapper
+        run: cargo run -p nextest-issue-2295
+        env:
+          NEXTEST_LOG: trace
       - name: Output nextest log
         run: |
           echo "Dumping nextest log"

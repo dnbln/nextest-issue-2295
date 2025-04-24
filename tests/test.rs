@@ -1,11 +1,10 @@
 use std::time::Duration;
 
-// simulate slow tests
-
 macro_rules! t {
     ($name:ident) => {
         #[test]
         fn $name() {
+            // simulate workload
             std::thread::sleep(Duration::from_millis(200));
         }
     };

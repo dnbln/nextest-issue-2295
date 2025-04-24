@@ -1,11 +1,9 @@
-use std::io;
 use std::io::BufRead;
 use std::process::{Command, Stdio};
-use std::sync::Arc;
 
 fn main() {
     let mut cmd = Command::new("cargo");
-    
+
     let f = std::fs::File::create("nextest.stderr.log").unwrap();
 
     cmd.args([
