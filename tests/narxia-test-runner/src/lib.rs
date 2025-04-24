@@ -58,8 +58,8 @@ pub mod parser_tests {
     dir_structure::dir_children_wrapper!(pub ParserTestsFolder ParserTestSingleFolder);
 
     pub fn collect_parser_tests() -> miette::Result<ParserTestsFolder> {
-        // ParserTestsFolder::read(parser_tests_dir()).into_diagnostic()
-        Ok(ParserTestsFolder(DirChildren::new()))
+        ParserTestsFolder::read(parser_tests_dir()).into_diagnostic()
+        // Ok(ParserTestsFolder(DirChildren::new()))
     }
 }
 
@@ -102,8 +102,8 @@ pub mod ssa_tests {
     }
 
     pub fn collect_ssa_tests() -> miette::Result<SsaTestsFolder> {
-        SsaTestsFolder::read(ssa_tests_dir()).into_diagnostic()
-        // Ok(SsaTestsFolder(DirChildren::new()))
+        // SsaTestsFolder::read(ssa_tests_dir()).into_diagnostic()
+        Ok(SsaTestsFolder(DirChildren::new()))
     }
 }
 
