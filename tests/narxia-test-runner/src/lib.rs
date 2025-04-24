@@ -146,8 +146,7 @@ macro_rules! test_main_parser_tests_foreach {
 
         fn main() -> miette::Result<()> {
             let args = libtest_mimic::Arguments::from_args();
-            let trials = vec![];
-            // __collect_trials()?;
+            let trials = __collect_trials()?;
             libtest_mimic::run(&args, trials).exit();
         }
     };
