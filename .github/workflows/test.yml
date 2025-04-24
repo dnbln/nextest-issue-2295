@@ -37,9 +37,12 @@ jobs:
         if: steps.llvm-cache.outputs.cache-hit != 'true'
         run: |
           tar -xf LLVM.tar.xz
+      - name: List llvm
+        run: |
           ls -la
           ls LLVM-20.1.3-Linux-X64
           ls LLVM-20.1.3-Linux-X64/bin
+          ls LLVM-20.1.3-Linux-X64/lib
       - name: Save llvm
         if: steps.llvm-cache.outputs.cache-hit != 'true'
         uses: actions/cache/save@v4
