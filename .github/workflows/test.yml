@@ -46,7 +46,7 @@ jobs:
           cd llvm-project-20.1.3.src
           mkdir build
           cd build
-          cmake -G Ninja -DCMAKE_BUILD_TYPE=Release -DLLVM_ENABLE_ASSERTIONS=ON -DCMAKE_INSTALL_PREFIX=$LLVM_SYS_201_PREFIX ../
+          cmake -G Ninja -DCMAKE_BUILD_TYPE=Release -DLLVM_ENABLE_ASSERTIONS=ON -DCMAKE_INSTALL_PREFIX=$LLVM_SYS_201_PREFIX ../llvm
           cmake --build . --target install
       - name: List llvm
         run: |
