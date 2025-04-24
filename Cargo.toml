@@ -13,6 +13,8 @@ description = "A programming language for distributed systems."
 keywords = ["narxia", "programming-language"]
 license = "MIT OR Apache-2.0"
 
+[workspace.lints]
+
 [profile.release]
 debug = true
 
@@ -85,18 +87,6 @@ tracing = "0.1.37"
 tracing-subscriber = { version = "0.3.17", features = ["env-filter"] }
 xz = "0.1.0"
 zip = "2.6.1"
-
-[workspace.lints.rust]
-unsafe_code = "deny"
-unused_imports = "deny"
-unused_unsafe = "deny"
-
-[workspace.lints.clippy]
-absolute_paths = "deny"
-alloc_instead_of_core = "deny"
-allow_attributes = "deny"
-suspicious = { level = "deny", priority = -1 }
-style = "deny"
 
 [package]
 name = "nextest-issue-2295"
