@@ -3,7 +3,7 @@ use std::process::{Command, Stdio};
 
 fn main() {
     let first_arg = std::env::args().nth(1).unwrap_or_else(|| "test".to_string());
-    
+
     let mut cmd = match first_arg.as_str() {
         "test" => {
             let mut cmd = Command::new("cargo");
@@ -23,7 +23,7 @@ fn main() {
         "nextest" => {
             let mut cmd = Command::new("cargo");
 
-            let f = std::fs::File::create("test.stderr.log").unwrap();
+            std::fs::write("test.nextest.log", b"Hello, world!\n").unwrap();
 
             cmd.args([
                 "nextest",
@@ -46,9 +46,9 @@ fn main() {
                 .env("NEXTEST_EXPERIMENTAL_LIBTEST_JSON", "1")
                 .stdin(Stdio::null())
                 .stdout(Stdio::piped())
-                .stderr(Stdio::from(f));
+                .stderr(Stdio::inherit());
             cmd
-        } 
+        }
         _ => panic!("Unknown command: {}", first_arg),
     };
 
