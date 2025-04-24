@@ -44,7 +44,7 @@ jobs:
         if: steps.llvm-cache.outputs.cache-hit != 'true'
         uses: actions/cache/save@v4
         with:
-          key: built-llvm
+          key: downloaded-llvm
           path: |
             LLVM-20.1.3-Linux-X64
       - name: Install cargo-nextest
