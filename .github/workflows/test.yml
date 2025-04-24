@@ -11,7 +11,7 @@ on:
 env:
   CARGO_TERM_COLOR: always
   COLOR: always
-  LLVM_SYS_201_PREFIX: ${{ github.workspace }}/llvm
+  LLVM_SYS_201_PREFIX: ${{ github.workspace }}/LLVM-20.1.3-Linux-X64
 
 jobs:
   build:
@@ -29,7 +29,8 @@ jobs:
         run: |
           tar -xf LLVM.tar.xz
           ls -la
-          ls llvm
+          ls LLVM-20.1.3-Linux-X64
+          ls LLVM-20.1.3-Linux-X64/bin
       - name: Install cargo-nextest
         uses: baptiste0928/cargo-install@v1
         with:
