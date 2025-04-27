@@ -4,4 +4,4 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
-llvm-sys = {version = "201.0.0", features = ["force-static"]}
+llvm-sys = {git = "https://gitlab.com/taricorp/llvm-sys.rs", rev="65474eca62091d90c62cf002e6d9cdf5d351bc28", features = ["force-static"]}

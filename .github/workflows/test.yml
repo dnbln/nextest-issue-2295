@@ -2,7 +2,7 @@ name: Test
 
 on:
   push:
-    branches: ["trunk"]
+    branches: ["aaaa"]
   pull_request:
     branches: ["trunk"]
   workflow_dispatch:
